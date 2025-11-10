@@ -49,7 +49,9 @@ app.get('/about', function(req, res){
 app.get('/about/contact', function(req, res){
     //res.type('text/plain');
     //res.send('Contact Meadowlark Travel');
-    res.render('contact');
+    res.render('contact', {
+        fortune: fortune.getFortune(), pageTestScript: '/qa/tests-about.js'
+    });
 });
 
 //custom 404 page
