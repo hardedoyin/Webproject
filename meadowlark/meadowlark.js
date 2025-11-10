@@ -19,12 +19,15 @@ app.use(express.static(__dirname + '/public'));
 
 app.set('port', process.env.PORT || 3000);
 
+//routes definition
+//cutom home page
 app.get('/', function(req, res){
     //res.type('text/plain');
     res.render('home');
     //res.send('Meadowlark Travel');
 });
 
+//custom about page
 app.get('/about', function(req, res){
     //res.type('text/plain');
     //res.send('About Meadowlark Travel');
@@ -33,6 +36,7 @@ app.get('/about', function(req, res){
     res.render('about', { fortune: fortune.getFortune() });
 });
 
+//custom about contact page
 app.get('/about/contact', function(req, res){
     //res.type('text/plain');
     //res.send('Contact Meadowlark Travel');
