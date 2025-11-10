@@ -17,7 +17,16 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static(__dirname + '/public'));
 
+
+//middleware to detect test = 1
+app.use(function(req, res, next){
+    res.locals.showTests = app.get('env') != 'production' && req.query.test == '1';
+    next();
+});
+
+
 app.set('port', process.env.PORT || 3000);
+
 
 //routes definition
 //cutom home page
